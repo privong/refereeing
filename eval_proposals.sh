@@ -29,6 +29,6 @@ for i in $(ls *.pdf); do
     if [ "$finished" == "y" ]
     then
         mv $i finished/
-        echo ""
     fi
+    echo ""
 done
