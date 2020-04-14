@@ -4,7 +4,7 @@
 #
 # Load pdf files and open the evaluation text files for matched proposals.
 #
-# Copyright 2019 George C. Privon
+# Copyright 2019-2020 George C. Privon
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 
 PDFREADER='zathura'
 
-for i in $(ls *.pdf); do
+for i in $(ls *.pdf | shuf); do
     $PDFREADER $i &
     vim "grades/${i/pdf/txt}"
     echo -n "Review of ${i/pdf/} finished? (y/n)"
