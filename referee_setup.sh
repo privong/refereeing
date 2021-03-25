@@ -4,7 +4,7 @@
 #
 # Set up a directory of PDFs for peer review.
 #
-# Copyright 2017 George C. Privon
+# Copyright 2017, 2021 George C. Privon
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,13 +19,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# usage:
+# referee_setup.sh templatefile.txt
 
 mkdir grades
 mkdir finished
 for i in $(ls *.pdf); do
-    touch grades/$i.txt
+    cp $1 grades/$i.txt
 done
 rename .pdf.txt .txt grades/*.txt
-for i in $(ls grades/*.txt); do
-    printf "Score:\n\nStrengths:\n\n\n\nWeaknesses:\n\n\n\nOverall Evaluation:\n\n\n" > $i
-done
